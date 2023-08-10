@@ -4,24 +4,11 @@ using UnityEngine;
 
 public class MoveStuff : MonoBehaviour
 {
-    public float speed = 4.0f;
+    public float bulletSpeed = 10f;
+    Vector3 moveDirection = new Vector3(0, 10, 0);
 
-
-    void Start()
+    private void FixedUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 currentPosition = transform.position;
-
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float movementX = horizontalInput * speed * Time.deltaTime;
-
-        Vector3 newPosition = new Vector3(currentPosition.x + movementX, currentPosition.y, currentPosition.z);
-
-        transform.position = newPosition;
+        transform.position += moveDirection * Time.fixedDeltaTime;
     }
 }
