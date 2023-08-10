@@ -44,9 +44,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Fire()
     {
+        //Obten la lista de los objetos e Instancialos conforme son necesarios
         GameObject bullet = ObjectPool.SharedInstance.GetPooledObjet();
         if (bullet != null)
         {
+            //Toma la posicion donde quieran iniciarlos y que empiecen desde esta zona
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
             bullet.transform.parent = transform;
